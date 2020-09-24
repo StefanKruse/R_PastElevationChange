@@ -202,8 +202,8 @@ setwd(choose.dir())
 		}
 
 		library(lattice)
-			lplti=levelplot(t(demintime)[,dim(demintime)[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="available areas in catchment\nreduced by snow cover")
-		pdf("naleng_available_areas_in_catchment_reduced_by_snow_cover_18-0kyrsBP.naleng_catch_90m.pdf")
+		lplti=levelplot(t(demintime[5:23,])[,dim(demintime[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment\nreduced by snow cover", ylab="Elevation [m asl]",xlab="Year")
+		png("naleng_available_areas_in_catchment_reduced_by_snow_cover_18-0kyrsBP.naleng_catch_90m.png", width=1600, height=1200, res=300)
 			print(lplti)
 		dev.off()
 
@@ -221,8 +221,8 @@ setwd(choose.dir())
 			demintime_total[,as.character(ti)]=hi$counts
 		}
 
-		lplti=levelplot(t(demintime_total)[,dim(demintime_total)[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="available areas in catchment")
-		pdf("naleng_available_areas_in_catchment_total.naleng_catch_90m.pdf")
+		lplti=levelplot(t(demintime_total[5:23,])[,dim(demintime_total[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment", ylab="Elevation [m asl]",xlab="Year")
+		png("naleng_available_areas_in_catchment_total.naleng_catch_90m.png", width=1600, height=1200, res=300)
 			print(lplti)
 		dev.off()
 
