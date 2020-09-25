@@ -106,7 +106,7 @@ setwd(choose.dir())
 	# read temperature reconstructions 
 	# ... 22-6.5 kyr BP, Shakun, J. D. et al. Global warming preceded by increasing carbon dioxide concentrations during the last deglaciation. Nature 484, 49–54 (2012).
 	# ... 12-0 kyr BP, Marcott, S. A., Shakun, J. D., Clark, P. U. & Mix, A. C. A Reconstruction of Regional and Global Temperature for the Past 11,300 Years. Science 339, 1198–1201 (2013).
-		temp=read.csv2("paleo_temperatures.csv", stringsAsFactors=TRUE)
+		temp=read.csv2("temperatures_paleo.csv", stringsAsFactors=TRUE)
 		str(temp)
 		# with(temp, plot(Temp~AgeBP1950, col=c("blue","orange")[Source]))
 		# legend("topright", c("Marcott","Shakun"), pch=1, col=c("blue","orange"))
@@ -138,8 +138,8 @@ setwd(choose.dir())
 		tagg=tagg[!is.na(tagg$tr),]
 		str(tagg)
 
-		png("temperatures_paleo_merged.png")
-			with(tagg, plot(tr~yr, type="l",lwd=2,col="red"))
+		png("temperatures_paleo_merged.png", width=1200, height=600, res=200)
+			with(tagg, plot(tr~yr, type="l",lwd=2,col="red", ylab="rel. Temperature [°K]", xlab="Year BP"))
 		dev.off()
 	
 	# add future series
@@ -202,7 +202,7 @@ setwd(choose.dir())
 		}
 
 		library(lattice)
-		lplti=levelplot(t(demintime[5:23,])[,dim(demintime[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment\nreduced by snow cover", ylab="Elevation [m asl]",xlab="Year")
+		lplti=levelplot(t(demintime[5:23,])[,dim(demintime[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment\nreduced by snow cover", ylab="Elevation [m asl]",xlab="Year BP")
 		png("naleng_available_areas_in_catchment_reduced_by_snow_cover_18-0kyrsBP.naleng_catch_90m.png", width=1600, height=1200, res=300)
 			print(lplti)
 		dev.off()
@@ -221,7 +221,7 @@ setwd(choose.dir())
 			demintime_total[,as.character(ti)]=hi$counts
 		}
 
-		lplti=levelplot(t(demintime_total[5:23,])[,dim(demintime_total[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment", ylab="Elevation [m asl]",xlab="Year")
+		lplti=levelplot(t(demintime_total[5:23,])[,dim(demintime_total[5:23,])[1]:1], scales=list(y=list(rot=45), x=list(rot=45)), col.regions=colorRampPalette(c("gray90","blue","yellow")), main="Available areas in catchment", ylab="Elevation [m asl]",xlab="Year BP")
 		png("naleng_available_areas_in_catchment_total.naleng_catch_90m.png", width=1600, height=1200, res=300)
 			print(lplti)
 		dev.off()
