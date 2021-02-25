@@ -37,3 +37,7 @@ R code for estimating available elevation in a lake catchment through time based
 1. "PastElevationChange.r" master file including the script and explanations about input and output files 
 2. "icecover_sim_tiffs.zip" geotiff files by time step of ice cover
 3. "naleng_catch_30m.xxx" shapefiles and geotiffs of the estimated lake catchment
+
+
+
+[![DOI](https://zenodo.org/badge/298295194.svg)](https://zenodo.org/badge/latestdoi/298295194)
